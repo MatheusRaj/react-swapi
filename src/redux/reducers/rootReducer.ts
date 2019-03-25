@@ -60,12 +60,9 @@ export const listFilms = () => {
     dispatch({type: FETCHING_FILMS, payload: null })
 
     fetch('https://swapi.co/api/films', {method: 'GET'})
-      .then(res => {
-        console.log(res);
-        res.json();
-      })
+      .then(res => res.json())
       .then(films => {
-        console.log(films);
+        console.log(films.results);
         dispatch({type: LIST_FILMS, payload: films.results });
       })
       .catch(error => {

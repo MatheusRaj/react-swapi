@@ -38,13 +38,7 @@ class Card extends Component<IProps, IState> {
       <div className="card-content">
         <Banner />
         <Searchbar />
-        {this.props.rootReducer.films.map(film => (
-          <Content
-            title={film.title}
-            episode={film.episode_id}
-            description={film.opening_crawl}
-          />
-        ))}
+        {this.props.rootReducer.films}
       </div>
     );
   }
