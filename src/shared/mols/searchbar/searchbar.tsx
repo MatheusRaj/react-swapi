@@ -1,19 +1,32 @@
 import React, { Component } from "react";
 import * as ReactRedux from "react-redux";
 
-import { getFilm } from "../../../reducers/rootReducer";
+import { getFilm } from "../../../redux/reducers/rootReducer";
 
 import "./searchbar.css";
 
 interface IProps {
-  film: any;
-  getFilms: (film: any) => void;
+  film?: any;
+  getFilm: (film: any) => void;
 }
 
-class Searchbar extends Component<IProps> {
-  onClick = (e: any) => {
-    this.getFilms(film);
-  };
+interface IState {
+  film: string;
+}
+
+class Searchbar extends Component<IProps, IState> {
+
+  state = {
+    film: ''
+  }
+
+  onChange = (e:any) => (
+    this.setState({ film: e.target.value })
+  )
+
+  onClick = (e: any) => (
+    this.props.getFilm(this.state.film)
+  )
 
   render() {
     return (
@@ -22,8 +35,9 @@ class Searchbar extends Component<IProps> {
           className="searchbar"
           type="text"
           placeholder="Busque aqui seu filme favorito!"
+          onChange={this.onChange}
         />
-        <button className="searchbutton">Buscar</button>
+        <button className="searchbutton" onClick={this.onClick}>Buscar</button>
       </>
     );
   }

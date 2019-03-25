@@ -31,6 +31,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/react-redux": "^7.0.5"
+    "@types/react-redux": "^7.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }

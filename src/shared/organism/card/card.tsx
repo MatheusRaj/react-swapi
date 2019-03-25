@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as ReactRedux from "react-redux";
 
-import { listFilms } from "../../../reducers/rootReducer";
+import { listFilms } from "../../../redux/reducers/rootReducer";
 import Banner from "../../mols/banner/banner";
 import Content from "../../mols/content/content";
 import Searchbar from "../../mols/searchbar/searchbar";
@@ -9,21 +9,36 @@ import Searchbar from "../../mols/searchbar/searchbar";
 import "./card.css";
 
 interface IProps {
-  films: any[];
+  rootReducer: {
+    films: any[];
+    isFetching: boolean;
+    hasErrors: boolean;
+  };
   listFilms: () => void;
 }
 
-class Card extends Component<IProps> {
+interface IState {
+  films: any[];
+}
+
+class Card extends Component<IProps, IState> {
+
+  state: IState = {
+    films: []
+  };
+
   componentDidMount() {
     this.props.listFilms();
   }
 
   render() {
+    if (this.props.rootReducer.isFetching) return "LOADING...";
+    if (this.props.rootReducer.hasErrors) return "SOMETHING WENT WRONG...";
     return (
       <div className="card-content">
         <Banner />
         <Searchbar />
-        {this.props.films.map(film => (
+        {this.props.rootReducer.films.map(film => (
           <Content
             title={film.title}
             episode={film.episode_id}
@@ -36,7 +51,7 @@ class Card extends Component<IProps> {
 }
 
 const mapStateToProps = (state: any) => ({
-  films: state.films
+  rootReducer: state.films
 });
 
 const mapDispatchToProps = {
