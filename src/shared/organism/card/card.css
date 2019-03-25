@@ -7,3 +7,15 @@
 
     width: 90%;
 }
+
+.card.Red {
+  background: red;
+}
+
+.card.Green {
+  background: green;
+}
+
+.card.Blue {
+  background: blue;
+}

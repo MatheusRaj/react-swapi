@@ -1,17 +1,22 @@
-import React, { Component } from 'react';
-import Card from './shared/organism/card/card';
+import React, { Component } from "react";
+import Card from "./shared/organism/card/card";
+import configureStore from "./reducers/configureStore";
+import * as ReactRedux from "react-redux";
 
-import './App.css';
+const store = configureStore();
+
+import "./App.css";
 
 class App extends Component {
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <Card />
-        </header>
-      </div>
+      <ReactRedux.Provider store={store}>
+        <div className="App">
+          <header className="App-header">
+            <Card />
+          </header>
+        </div>
+      </ReactRedux.Provider>
     );
   }
 }

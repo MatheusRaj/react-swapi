@@ -1,0 +1,10 @@
+.searchbar {
+  border: 0;
+  padding: 0;
+  height: 30px;
+  width: 60%;
+}
+
+.searchbutton {
+  height: 30px;
+}
