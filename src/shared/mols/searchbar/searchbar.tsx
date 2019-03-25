@@ -6,7 +6,6 @@ import { getFilm } from "../../../redux/reducers/rootReducer";
 import "./searchbar.css";
 
 interface IProps {
-  film: any;
   getFilm: (film: any) => void;
 }
 
