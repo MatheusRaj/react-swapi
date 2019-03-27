@@ -9,11 +9,12 @@ interface IProps {
 class Content extends Component<IProps> {
   render() {
     return (
-      <>
-        <h2>Title: {this.props.title}</h2>
-        <h2>Episode: {this.props.episode}</h2>
-        <h2>Description: {this.props.description}</h2>
-      </>
+      <div className="content">
+        <h2>
+          Episode: {this.props.episode} - {this.props.title}
+        </h2>
+        <p>Description: {this.props.description}</p>
+      </div>
     );
   }
 }

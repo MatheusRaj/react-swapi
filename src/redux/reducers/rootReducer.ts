@@ -30,6 +30,7 @@ export default function reducer(state: IState = initialState, action: IAction) {
       };
 
     case LIST_FILMS:
+      console.log(action.payload);
       return {
         films: action.payload,
         isFetching: false,
@@ -62,11 +63,9 @@ export const listFilms = () => {
     fetch('https://swapi.co/api/films', {method: 'GET'})
       .then(res => res.json())
       .then(films => {
-        console.log(films.results);
         dispatch({type: LIST_FILMS, payload: films.results });
       })
       .catch(error => {
-        console.log("Error: ", error);
         return dispatch({
           type: FAIL_FILMS,
           payload: error
@@ -79,11 +78,12 @@ export const getFilm = (film: string) => {
   return (dispatch: any) => {
     dispatch({type: FETCHING_FILMS, payload: null })
 
-    fetch('https://swapi.co/api/films/?search/' + film, {method: 'GET'})
+    fetch('https://swapi.co/api/films/?search=' + film, {method: 'GET'})
       .then(res => res.json())
-      .then(film => dispatch({type: GET_FILM, payload: film.results }))
+      .then(film => {
+        dispatch({type: GET_FILM, payload: film.results });
+      })
       .catch(error => {
-        console.log("Error: ", error);
         return dispatch({
           type: FAIL_FILMS,
           payload: error
