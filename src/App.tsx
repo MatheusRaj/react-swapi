@@ -17,9 +17,7 @@ class App extends Component {
     return (
       <ReactRedux.Provider store={store}>
         <div className="App">
-          <header className="App-header">
-            <Card />
-          </header>
+          <Card />
         </div>
       </ReactRedux.Provider>
     );

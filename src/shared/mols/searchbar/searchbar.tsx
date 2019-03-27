@@ -14,18 +14,13 @@ interface IState {
 }
 
 class Searchbar extends Component<IProps, IState> {
-
   state = {
-    film: ''
-  }
+    film: ""
+  };
 
-  onChange = (e:any) => (
-    this.setState({ film: e.target.value })
-  )
+  onChange = (e: any) => this.setState({ film: e.target.value });
 
-  onClick = (e: any) => (
-    this.props.getFilm(this.state.film)
-  )
+  onClick = (e: any) => this.props.getFilm(this.state.film);
 
   render() {
     return (
@@ -33,18 +28,20 @@ class Searchbar extends Component<IProps, IState> {
         <input
           className="searchbar"
           type="text"
-          placeholder="Busque aqui seu filme favorito!"
+          placeholder="Search for Star Wars movies!"
           onChange={this.onChange}
         />
-        <button className="searchbutton" onClick={this.onClick}>Buscar</button>
+        <button className="searchbutton" onClick={this.onClick}>
+          Search
+        </button>
       </>
     );
   }
 }
 
-const mapStateToProps = (state: any) => {
-  film: state.film;
-};
+const mapStateToProps = (state: any) => ({
+  film: state.film
+});
 
 const mapDispatchToProps = {
   getFilm

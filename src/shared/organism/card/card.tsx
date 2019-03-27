@@ -22,7 +22,6 @@ interface IState {
 }
 
 class Card extends Component<IProps, IState> {
-
   state: IState = {
     films: []
   };
@@ -38,13 +37,21 @@ class Card extends Component<IProps, IState> {
       <div className="card-content">
         <Banner />
         <Searchbar />
+        {this.props.rootReducer.films.map((film, index) => (
+          <Content
+            key={index}
+            title={film.title}
+            episode={film.episode_id}
+            description={film.opening_crawl}
+          />
+        ))}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state: any) => ({
-  rootReducer: state.films
+  rootReducer: state
 });
 
 const mapDispatchToProps = {
