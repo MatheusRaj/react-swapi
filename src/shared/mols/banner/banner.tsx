@@ -6,10 +6,10 @@ class Banner extends Component {
     return (
       <header>
         <img
-          className="banner"
+          className="banner-img"
           src="https://logos-download.com/wp-content/uploads/2016/09/Star_Wars_logo-1.png"
         />
-        <h1>MAY THE FORCE BE WITH YOU!</h1>
+        <h1 className="banner-title">MAY THE FORCE BE WITH YOU!</h1>
       </header>
     );
   }

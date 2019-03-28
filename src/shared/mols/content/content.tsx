@@ -1,22 +1,67 @@
 import React, { Component } from "react";
+import * as ReactRedux from "react-redux";
 
-interface IProps {
-  title: string;
-  episode: string;
-  description: string;
+import { listFilms } from "../../../redux/reducers/rootReducer";
+
+import "./content.css";
+
+interface IState {
+  films: any[];
 }
 
-class Content extends Component<IProps> {
+interface IProps {
+  rootReducer: {
+    films: any[];
+    isFetching: boolean;
+    hasErrors: boolean;
+  };
+  listFilms: () => void;
+}
+
+class Content extends Component<IProps, IState> {
+  state: IState = {
+    films: []
+  };
+
+  componentDidMount() {
+    this.props.listFilms();
+    console.log(this.props.rootReducer.films);
+  }
+
   render() {
+    if (this.props.rootReducer.isFetching) return "LOADING...";
+    if (this.props.rootReducer.hasErrors)
+      return "SOMETHING WENT WRONG, TRY AGAIN LATER... ;(";
+    if (this.props.rootReducer.films.length < 1)
+      return "SEEMS THAT NOT EXIST ANY STAR WARS MOVIES WITH THIS NAME, TRY AGAIN! :D";
     return (
       <div className="content">
-        <h2>
-          Episode: {this.props.episode} - {this.props.title}
-        </h2>
-        <p>Description: {this.props.description}</p>
+        {this.props.rootReducer.films.map((film, index) => {
+          return (
+            <div>
+              <h2>
+                Episode: {film.episode_id} - {film.title}
+              </h2>
+              <p>{film.opening_crawl}</p>
+              <p id="sub">
+                {film.director} - {film.producer} - {film.release_date}
+              </p>
+            </div>
+          );
+        })}
       </div>
     );
   }
 }
 
-export default Content;
+const mapStateToProps = (state: any) => ({
+  rootReducer: state
+});
+
+const mapDispatchToProps = {
+  listFilms
+};
+
+const reduxConnetion = ReactRedux.connect(mapStateToProps, mapDispatchToProps);
+
+export default reduxConnetion(Content);

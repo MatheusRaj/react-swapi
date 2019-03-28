@@ -24,7 +24,7 @@ class Searchbar extends Component<IProps, IState> {
 
   render() {
     return (
-      <>
+      <div>
         <input
           className="searchbar"
           type="text"
@@ -34,7 +34,7 @@ class Searchbar extends Component<IProps, IState> {
         <button className="searchbutton" onClick={this.onClick}>
           Search
         </button>
-      </>
+      </div>
     );
   }
 }

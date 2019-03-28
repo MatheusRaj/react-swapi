@@ -1,6 +1,15 @@
-.banner {
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+.banner-img {
   height: auto;
   border-radius: 10px;
-  max-width: 468px;
+  max-width: 326px;
   width: 100%;
+}
+
+.banner-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: .1em;
 }

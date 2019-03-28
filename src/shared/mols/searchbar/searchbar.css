@@ -1,10 +1,12 @@
 .searchbar {
   border: 0;
+  border-radius: 5px 0 0 5px;
   padding: 0;
   height: 30px;
-  width: 60%;
+  width: 70%;
 }
 
 .searchbutton {
+  border-radius: 0 5px 5px 0;
   height: 30px;
 }
