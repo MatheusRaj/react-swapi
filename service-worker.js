@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/MatheusRaj/react-swapi/precache-manifest.c19708ddd6f7480b93ea5e079518e271.js"
+  "/react-swapi/precache-manifest.1bf8ff496c314a810f1377cb97d06775.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/MatheusRaj/react-swapi/index.html", {
+workbox.routing.registerNavigationRoute("/react-swapi/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
