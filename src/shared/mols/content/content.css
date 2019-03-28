@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
 
 .content {
   display: flex;
@@ -6,8 +7,20 @@
   justify-content: center;
 }
 
-.content p,
-.content h2 {
+.content p {
   text-align: justify;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Abel', sans-serif;
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+.content h2 {
+  font-family: 'Dosis' sans-serif;
+  font-weight: 900,
+}
+
+#sub {
+  font-size: 1em;
+  font-weight: 100;
+  text-align: center;
 }

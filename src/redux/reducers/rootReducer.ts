@@ -38,6 +38,7 @@ export default function reducer(state: IState = initialState, action: IAction) {
       };
 
     case GET_FILM:
+      console.log(action.payload);
       return {
         films: action.payload,
         isFetching: false,
