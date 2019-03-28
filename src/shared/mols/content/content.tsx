@@ -33,7 +33,7 @@ class Content extends Component<IProps, IState> {
     if (this.props.rootReducer.hasErrors)
       return "SOMETHING WENT WRONG, TRY AGAIN LATER... ;(";
     if (this.props.rootReducer.films.length < 1)
-      return "SEEMS THAT NOT EXIST ANY STAR WARS MOVIES WITH THIS NAME, TRY AGAIN! :D";
+      return "SEEMS THAT THERE ISN'T ANY STAR WARS MOVIE WITH THIS NAME, TRY AGAIN! :D";
     return (
       <div className="content">
         {this.props.rootReducer.films.map((film, index) => {
